@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="lib/streamhub-sdk/src/css/style.css">
+</head>
+<body>
+	<div id="contextual-comments">
+        <p>Here is my first paragraph</p>
+        <p>Here is my second paragraph</p>
+        <p>Here is my third paragraph</p>
+        <p>Here is my forth paragraph</p>
+        <p>Here is my last paragraph</p>
+    </div>
+	<!-- scripts -->
+	<script src="lib/requirejs/require.js"></script>
+	<script src="requirejs.conf.js"></script>
+	<script>
+	require(['example'], function (example) {
+		example(document.getElementById('contextual-comments'));
+	});
+	</script>
+</body>
+</html>
