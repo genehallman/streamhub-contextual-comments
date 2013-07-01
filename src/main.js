@@ -64,7 +64,9 @@ define([
 			    'bottom': '0px',
 			    'background-color': 'grey',
 			    'transition': 'all 300ms ease',
-			    'opacity': '0'
+			    'opacity': '0',
+			    'overflow-y': 'scroll',
+			    'overflow-x': 'hidden'
             });
                 
         this.$el.append(this.$pane);
@@ -72,11 +74,13 @@ define([
     
     ContextualCommentView.prototype.clickHandler = function(index) {
 	    var self = this;
-	    var prevIndex = parseInt(this.$pane.attr('data-action-id')) || -1;
+	    var prevIndex = parseInt(this.$pane.attr('data-action-id'));
+	    prevIndex = prevIndex != NaN ? prevIndex : -1;
 	    var child = this.children[index] || {};
-	    
+        var right = parseInt(this.$pane.css('right'));
+	    	    
 	    if (right === 0 && index == prevIndex) {
-	        this.$pane.css({'right':'', 'opacity':''});
+	        this.$pane.css({'right':'-400px', 'opacity':''});
 	    } else {
 	        var sendReply = function(parentContent, text) {
 	            try {
@@ -111,12 +115,11 @@ define([
 	                } 
 	            });
 	        this.$pane.empty();
-		    this.$pane.attr('data-action-id', index);
+		    this.$pane.attr('data-action-id', index.toString());
 	        this.$pane.append((child.contentView || {}).el);
 	        this.$pane.append($('<input class="replyInput"></input>'));
 	        this.$pane.append(replyElement);
 		    
-		    var right = parseInt(this.$pane.css('right'));
 	        this.$pane.css('right','0px');
 	        this.$pane.css('opacity', '1');
 	    }
