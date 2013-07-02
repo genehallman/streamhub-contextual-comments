@@ -9,7 +9,7 @@ define(function(require) {
             siteId: "303827",
             articleId: 'contextual_1'
         });
-        window.streams = streams;
+
         var view = new View({
             el: el,
             streams: streams,
@@ -18,6 +18,22 @@ define(function(require) {
         });
         
         streams.bind(view).start();
+        
+        var reverseChecker = function() {
+            var reverseStream = streams.get('reverse');
+            if (!reverseStream) {
+                return setTimeout(reverseChecker, 20);
+            }
+            reverseStream.on('end', function() {
+                console.log('stream ended', reverseStream.page);
+                if (reverseStream.page >= 0) {
+                    reverseStream.start()
+                }
+            });
+
+        };
+        
+        setTimeout(reverseChecker, 20);
          
         return view;
     };
