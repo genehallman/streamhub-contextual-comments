@@ -7,7 +7,7 @@ define(function(require) {
             network: "labs-t402.fyre.co",
             environment: "t402.livefyre.com",
             siteId: "303827",
-            articleId: 'contextual_1'
+            articleId: 'sh_col_6_1371588182'
         });
 
         var view = new View({
@@ -25,12 +25,10 @@ define(function(require) {
                 return setTimeout(reverseChecker, 20);
             }
             reverseStream.on('end', function() {
-                console.log('stream ended', reverseStream.page);
                 if (reverseStream.page >= 0) {
                     reverseStream.start()
                 }
             });
-
         };
         
         setTimeout(reverseChecker, 20);
