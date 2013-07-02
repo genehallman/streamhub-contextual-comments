@@ -40,7 +40,7 @@ define([
         var paragraphs = this.$el.find(this.selector);
 
         for (var i = 0; i < paragraphs.length; i++) {
-            var action = $('<i>*</i>')
+            var action = $('<i style="width:19px;height:17px;display:inline-block;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAARCAYAAAA/mJfHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJFJREFUeNpi/DlPzYGBgWEBEMszkA8msiXeLGAEGvYByOFnoBwEMlHJIBAwYGKgIhg1bNQwPIZdpJJZG1iARAAQTwBiATRJEF8fTewhED/AYtAEYN68wPj//3+s1vyarw4qAPYjCS0E4gKgpg+4nMZChPM/Qg1ZQEghIcNA4ZkA8gIxgYbPMJABDvi8hQ4AAgwA1hYiQRmxJUsAAAAASUVORK5CYII=);"></i>')
                 .addClass('streamhub-action')
                 .attr('data-action-id', i)
                 .click(function() {
